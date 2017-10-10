@@ -1,8 +1,8 @@
 from django.contrib import admin
-from catalogo.models import Producto
-from catalogo.models import UnidadMed
-from catalogo.models import Categoria
-from catalogo.models import Venta, ShoppingCart, Cliente
+from catalogo.models_raiz import Producto
+from catalogo.models_raiz import UnidadMed
+from catalogo.models.categoria import Categoria
+from catalogo.models_raiz import Venta, ShoppingCart, Cliente
 # Register your models here.
 
 
