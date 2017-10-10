@@ -2,12 +2,12 @@ from .models import User
 from rest_framework import serializers, viewsets
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
         #fields = '__all__'
-        fields = ('url', 'username', 'email', 'is_staff')
+        fields = ('id', 'username', 'email', 'is_staff')
 
 
 class UserViewSet(viewsets.ModelViewSet):
