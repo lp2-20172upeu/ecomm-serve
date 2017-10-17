@@ -1,5 +1,6 @@
 from ..models.categoria import Categoria
 from rest_framework import serializers, viewsets
+from rest_framework import permissions
 
 
 class CategoriaSerializer(serializers.ModelSerializer):
@@ -13,6 +14,7 @@ class CategoriaSerializer(serializers.ModelSerializer):
 class CategoriaViewSet(viewsets.ModelViewSet):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
+    #permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        return Categoria.objects.filter(nombre__contains="K")
+        return Categoria.objects.filter()

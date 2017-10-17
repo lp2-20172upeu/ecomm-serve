@@ -41,8 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django.contrib.admindocs',
-
+    'oauth2_provider',
     'rest_framework',
+    'corsheaders',
+
+
 
     'core',
     'catalogo',
@@ -52,6 +55,8 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -84,13 +89,13 @@ WSGI_APPLICATION = 'ecomm_main.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASESx = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-DATABASES = {
+DATABASESx = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'd1rlipobrgit15',
@@ -151,10 +156,17 @@ REST_FRAMEWORKx = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
-REST_FRAMEWORK = {
+REST_FRAMEWORKxx = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
     )
 }
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    )
+}
+
 
 CSRF_USE_SESSIONS = False
+CORS_ORIGIN_ALLOW_ALL = True
