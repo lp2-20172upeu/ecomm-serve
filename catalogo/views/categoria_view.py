@@ -13,3 +13,6 @@ class CategoriaSerializer(serializers.ModelSerializer):
 class CategoriaViewSet(viewsets.ModelViewSet):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
+
+    def get_queryset(self):
+        return Categoria.objects.filter(nombre__contains="K")
