@@ -1,1 +1,2 @@
-#from .categoria import Categoria
+from .categoria import *
+from .diagnostico import *
